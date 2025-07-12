@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Metatag Title (Título da Página) -->
+    <title>Galeria de Imagens - Jogos Antigos</title>
+
+    <!-- Metatag Description (Descrição) -->
+    <meta name="description" content="Galeria de imagens com tema de jogos antigos, como Mega Man, Super Nintendo e Nintendinho. Veja uma coleção de imagens dinâmicas com estilo retro e 8-bit.">
+
+    <!-- Metatag Keywords (Palavras-chave) -->
+    <meta name="keywords" content="Mega Man, Super Nintendo, Nintendinho, jogos antigos, galeria retro, estilo 8-bit, pixel art, nostalgia">
+
+    <!-- Metatag Author (Autor da Página) -->
+    <meta name="author" content="Saib">
+
+    <!-- Open Graph (OG) para melhor compartilhamento em redes sociais -->
+    <meta property="og:title" content="Galeria de Imagens - Jogos Antigos">
+    <meta property="og:description" content="Confira nossa galeria de imagens com tema de jogos antigos, Mega Man, Super Nintendo e Nintendinho, estilo retro e pixel art.">
+    <!-- Imagens de jogos para Open Graph -->
+    <meta property="og:image" content="https://example.com/imagem-jogo.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card (Card para Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Galeria de Imagens - Jogos Antigos">
+    <meta name="twitter:description" content="Uma galeria de imagens com tema de jogos antigos, Mega Man, Super Nintendo e Nintendinho, ideal para quem busca nostalgia.">
+    <meta name="twitter:image" content="https://example.com/imagem-jogo.jpg">
+
+    <!-- Favicon (Ícone da página) -->
+    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+
+    <style>
+        /* CSS Retro para a página */
+        body {
+            margin: 0;
+            font-family: 'Press Start 2P', cursive; /* Fonte pixelada */
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Container da galeria */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Estilo da imagem da galeria */
+        .image-item {
+            margin: 10px;
+            border: 3px solid #0ff; /* Bordas estilo neon */
+            max-width: 300px;
+            position: relative;
+            overflow: hidden;
+            background-color: #111; /* Fundo escuro */
+            transition: transform 0.3s ease;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        /* Efeito de zoom nas imagens */
+        .image-item:hover img {
+            transform: scale(1.2);
+        }
+
+        /* Estilo da legenda com fontes pixeladas */
+        .image-item figcaption {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #0ff;
+            padding: 5px;
+            font-size: 1rem;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .image-item {
+                max-width: 100%;
+            }
+        }
+
+        /* Estilo para o texto aleatório */
+        .random-text {
+            text-align: center;
+            margin: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        /* Propaganda piscante estilo retro */
+        .popup-ad {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff0000;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            display: none;
+            animation: blink 30s infinite;
+            z-index: 1000;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        /* Efeito de piscamento mais lento */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Estilo do botão de fechar */
+        .popup-ad button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .popup-ad button:hover {
+            background-color: #444;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Galeria de Jogos Antigos - Mega Man, Super Nintendo e Nintendinho</h1>
+
+    <div class="container" id="gallery">
+        <!-- As imagens serão adicionadas aqui via JavaScript -->
+    </div>
+
+    <!-- Seção para o texto aleatório -->
+    <div class="random-text" id="randomText">
+        <!-- O texto aleatório será gerado aqui -->
+    </div>
+
+    <!-- Propaganda piscante -->
+    <div class="popup-ad" id="popupAd">
+        <button class="close-btn" id="closeAd">X</button>
+        <a href="https://victorxx.github.io/piadagithub01/">VAMOS RIR MELHORES PIADAS</a>
+    </div>
+
+    <script>
+        // Exemplo de URLs de imagens com tema de jogos antigos
+        const imagens = [
+            { src: "https://upload.wikimedia.org/wikipedia/pt/thumb/7/74/Mega_Man_5_capa.jpg/330px-Mega_Man_5_capa.jpg" },
+            { src: "https://i.ytimg.com/vi/F0pYojR9Xf8/maxresdefault.jpg" },
+            { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsvh5jKV_IRc6My0b7hDuMyHAkry9LxjyoTg&s" },
+            { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLUeWaUVrkdldRY5dFwRFGt_6EjPgrikPMg&s" },
+            { src: "https://i1.sndcdn.com/artworks-000573951980-j62237-t500x500.jpg" },
+            {src:"https://freebie.games/wp-content/uploads/2023/07/Mega-Man-5-NES-gallery-08.png"}
+        ];
+
+        // Função para gerar a galeria dinamicamente
+        function criarGaleria() {
+            const container = document.getElementById('gallery');
+            
+            imagens.forEach(imagem => {
+                const figure = document.createElement('figure');
+                figure.classList.add('image-item');
+
+                const img = document.createElement('img');
+                img.src = imagem.src;
+
+                const caption = document.createElement('figcaption');
+                caption.textContent = "Jogo Antigo";
+
+                figure.appendChild(img);
+                figure.appendChild(caption);
+                container.appendChild(figure);
+            });
+        }
+
+        // Função para gerar texto aleatório
+        function gerarTextoAleatorio() {
+            const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let resultado = '';
+            const tamanho = 10; // Tamanho do texto aleatório
+
+            for (let i = 0; i < tamanho; i++) {
+                const indice = Math.floor(Math.random() * caracteres.length);
+                resultado += caracteres[indice];
+            }
+
+            return resultado;
+        }
+
+        // Função para exibir o texto aleatório
+        function mostrarTextoAleatorio() {
+            const randomTextDiv = document.getElementById('randomText');
+            randomTextDiv.textContent = gerarTextoAleatorio();
+        }
+
+        // Função para fechar a propaganda
+        function fecharPropaganda() {
+            const popupAd = document.getElementById('popupAd');
+            popupAd.style.display = 'none';
+        }
+
+        // Chama a função para criar a galeria
+        criarGaleria();
+
+        // Chama a função para mostrar o texto aleatório
+        mostrarTextoAleatorio();
+
+        // Adiciona o evento de fechamento da propaganda
+        document.getElementById('closeAd').addEventListener('click', fecharPropaganda);
+
+        // Exibe a propaganda após 2 segundos
+        setTimeout(() => {
+            document.getElementById('popupAd').style.display = 'block';
+        }, 2000);
+    </script>
+</body>
+</html>
